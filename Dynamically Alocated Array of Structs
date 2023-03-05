@@ -1,0 +1,63 @@
+/**
+* 
+* Advanced C Programming Masterclass: Pointers & Memory in C
+* 
+* @theme Structs - Basic and Beyond
+* @brief Dynamically Alocated Array of Structs
+* @author Vlad Budnitski 
+* @date 05/03/2023
+* 
+*/
+
+
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct pointer
+{
+    int x;
+    int y;
+}POINTER;
+
+
+int main()
+{
+
+    
+    int i;
+    POINTER *pointsArray;
+    int totalPoints;
+
+    printf("Enter the total points: ");
+    scanf("%d", &totalPoints);
+
+    pointsArray = (POINTER*)malloc(totalPoints * sizeof(POINTER));
+
+    for (i = 0; i < totalPoints; i++)
+    {
+        printf("Enter the #%d 'x' coordinate: ",i+1);
+        scanf("%d", &pointsArray[i].x);
+        printf("Enter the #%d 'y' coordinate: ",i+1);
+        scanf("%d", &pointsArray[i].y);
+    }
+
+    for (i = 0; i < totalPoints; i++)
+        printf("Point #%d = (%d - %d)\n", i + 1, pointsArray[i].x, pointsArray[i].y);
+   
+    free(pointsArray);
+ 
+    return 0;
+}
+
+
+
+    
+
+
+
+
+
+
