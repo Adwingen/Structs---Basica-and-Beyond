@@ -1,0 +1,51 @@
+/**
+* 
+* Advanced C Programming Masterclass: Pointers & Memory in C
+* 
+* @theme Structs-Basic and Beyond
+* @brief Creating Arrays of Struct Variables in a Static Manner
+* @author Vlad Budnitski 05/03/2023
+* @date 
+* 
+*/
+
+
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+/**
+* 
+* 
+* 
+* 
+*/
+
+typedef struct pointer
+{
+    int x;
+    int y;
+}POINTER;
+
+
+int main()
+{
+
+    int i;
+    POINTER pointsArray[5];
+
+    for (i = 0; i < 5; i++)
+    {
+        printf("Enter the #%d 'x' coordinate: ",i+1);
+        scanf("%d", &pointsArray[i].x);
+        printf("Enter the #%d 'y' coordinate: ",i+1);
+        scanf("%d", &pointsArray[i].y);
+    }
+
+    for (i = 0; i < 5; i++)
+        printf("Point #%d = (%d - %d)\n", i + 1, pointsArray[i].x, pointsArray[i].y);
+   
+    return 0;
+}
