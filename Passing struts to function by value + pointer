@@ -1,0 +1,51 @@
+/*
+* 
+* Advanced C Programming Masterclass: Pointers & Memory in C
+* 
+* @theme Structs - Basic and Beyond
+* @brief Passing struts to function by value + pointer
+* @author Vlad Budnitski 
+* @date 09/03/2023
+* 
+*/
+
+
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+typedef struct Employee
+{
+    char name[50];
+    int age;
+    int id;
+    struct Employee* next;
+    
+}EMPLOYEE;
+
+void printEmployee(EMPLOYEE emp)
+{
+    printf("Name of employee : %s\n", emp.name);
+    printf("Age of employee  : %d\n", emp.age);
+    printf("Id of employee   : %d\n", emp.id);
+}
+
+void incrementAgeEmployee(EMPLOYEE* empPtr)
+{
+    empPtr->age += 1;
+}
+
+int main()
+{
+
+    EMPLOYEE employee1 = { "Carlos", 39,1254789};
+    printEmployee(employee1);
+    puts("----------------");
+    incrementAgeEmployee(&employee1);
+    printEmployee(employee1);
+   
+    return 0;
+}
