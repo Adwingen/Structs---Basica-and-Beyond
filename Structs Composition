@@ -1,0 +1,43 @@
+/*
+* 
+* Advanced C Programming Masterclass: Pointers & Memory in C
+* 
+* @theme Structs - Basic and Beyond
+* @brief Structs Composition
+* @author Vlad Budnitski 
+* @date 09/03/2023
+* 
+*/
+
+
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+typedef struct point
+{
+    int x;
+    int y;
+
+}POINT;
+
+typedef struct circle
+{
+    POINT center;
+    double radius;
+}CIRCLE;
+
+int main()
+{
+    POINT p1 = { 1,2 };
+    CIRCLE c1;
+    c1.center = p1;
+    c1.radius = 3.3;
+    c1.center.x;
+    c1.center.y;
+
+    return 0;
+}
