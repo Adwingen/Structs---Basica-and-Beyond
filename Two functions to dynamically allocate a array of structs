@@ -1,0 +1,76 @@
+/*
+* 
+* Advanced C Programming Masterclass: Pointers & Memory in C
+* 
+* @theme Structs - Basic and Beyond
+* @brief Two functions to dynamically allocate a array of structs
+* @author Vlad Budnitski 
+* @date 11/03/2023
+* 
+*/
+
+
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+typedef struct employee
+{
+    int age;
+    int id;
+    char name[10];
+
+}EMPLOYEE;
+
+
+EMPLOYEE* createEmployeeArray(int totalElements)
+{
+    EMPLOYEE* employeeArr;
+    int i;
+    employeeArr = (EMPLOYEE*)malloc(totalElements * sizeof(EMPLOYEE));
+    for (i = 0; i < totalElements; i++)
+    {
+        printf("Enter the id :");
+        scanf("%d", &employeeArr->id);
+        printf("Enter the name :");
+        scanf("%s", &employeeArr->name);
+        printf("Enter the age :");
+        scanf("%d", &employeeArr->age);
+
+    }
+
+    return employeeArr;
+
+}
+
+void createEmployeeArrayByReference(int totalElements, EMPLOYEE **myEmployee)
+{
+    EMPLOYEE* employeeArr;
+    int i;
+    employeeArr = (EMPLOYEE*)malloc(totalElements * sizeof(EMPLOYEE));
+    for (i = 0; i < totalElements; i++)
+    {
+        printf("Enter the id :");
+        scanf("%d", &employeeArr->id);
+        printf("Enter the name :");
+        scanf("%s", &employeeArr->name);
+        printf("Enter the age :");
+        scanf("%d", &employeeArr->age);
+
+    }
+
+    *myEmployee = employeeArr;
+}
+
+int main()
+{
+
+    EMPLOYEE* ptrArr;
+    //ptrArr = createEmployeeArray(5);
+    createEmployeeArrayByReference(5, &ptrArr);
+    
+    return 0;
+}
